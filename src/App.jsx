@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { lazy } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProtectRoute from './Components/Auth/ProtectRoute';
+
+const Login = lazy(() => import('./Pages/Login'));
+const Home = lazy(() => import('./Pages/Home'));
+const NotFound = lazy(() => import('./Pages/NotFound'));
+
+let user = false;
 
 const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<ProtectRoute user={user} />} >
+          <Route path="/home" element={<Home />} />
+        </Route>
+        <Route path="/" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
