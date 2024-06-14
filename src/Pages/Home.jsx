@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CgProfile } from "react-icons/cg";
+import SpensingData from '../assets/data.js';
 
 const Home = () => {
+
+    const [balance,setBalance] = useState(0);
+
+    const moneyAdded = () => {
+
+        setBalance(balance + 100);
+    }
+
+    const moneyDebited = () => {
+        setBalance(balance - 100);
+    }
+
     return (
         <section className="h-screen py-14 bg-white dark:bg-[#0b1727] text-indigo-900 dark:text-white overflow-hidden">
             <div className="container mx-auto px-4 flex items-center justify-center">
@@ -18,51 +31,26 @@ const Home = () => {
                             <div className="w-full h-[15rem] flex flex-col flex-shrink-0 border-b-2 " >
                                 <div className="flex flex-col justify-center items-center h-3/4">
                                     <p className="opacity-80" >Balance</p>
-                                    <div className="text-2xl font-bold" >Rs. 0.00</div>
+                                    <div className="text-2xl font-bold" >Rs. {balance}</div>
                                 </div>
                                 <div className="flex justify-between p-7">
-                                    <div className="" >Add</div>
-                                    <div >Debited</div>
+                                    <div className="" onClick={moneyAdded}>Add</div>
+                                    <div className="" onClick={moneyDebited}>Debited</div>
                                 </div>
                             </div>
 
                             {/* Dummy data */}
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
-                            <div className="flex flex-shrink-0 w-full h-[5rem] border mt-2" >
-                                Spent
-                            </div>
+                            {
+                                SpensingData.map((items, index) => {
+                                    return (
+                                        <div key={index} className="flex justify-between items-center p-3" >
+                                            <div>{items.category}</div>
+                                            <div>{items.title}</div>
+                                            <div>{items.amount}</div>
+                                        </div>
+                                    )
+                                })
+                            }
 
 
                         </div>
