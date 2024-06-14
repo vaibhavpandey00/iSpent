@@ -14,13 +14,13 @@ const SpensingData = [
     {
         id: 3,
         category: "food",
-        title: "Spending",
+        title: "Recived",
         amount: 3000
     },
     {
         id: 4,
         category: "Groceries",
-        title: "Spending",
+        title: "Recived",
         amount: 4000
     },
     {
@@ -32,7 +32,7 @@ const SpensingData = [
     {
         id: 6,
         category: "Ticket",
-        title: "Spending",
+        title: "Recived",
         amount: 6000
     },
     {
@@ -56,7 +56,7 @@ const SpensingData = [
     {
         id: 10,
         category: "Sports",
-        title: "Spending",
+        title: "Recived",
         amount: 10000
     },
 ]
