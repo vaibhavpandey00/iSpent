@@ -6,7 +6,7 @@ const Login = lazy(() => import('./Pages/Login'));
 const Home = lazy(() => import('./Pages/Home'));
 const NotFound = lazy(() => import('./Pages/NotFound'));
 
-let user = false;
+let user = true;
 
 const App = () => {
   return (
